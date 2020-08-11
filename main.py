@@ -9,6 +9,7 @@ bars = []
 screen = pygame.display.set_mode(SCREEN_SIZE)
 pygame.display.set_caption("Bubble Sort Visualization")
 screen.fill(WHITE)
+clock = pygame.time.Clock()
 
 def bubleSort(list):
     listLenght = len(list)
@@ -17,14 +18,15 @@ def bubleSort(list):
             
             #Drawing
             for k in range(BARS):
-                posX = (i * BAR_WIDTH) + (i * SPACE) + (WIDTH - (BARS * BAR_WIDTH * SPACE)) / 2
+                posX = (k * BAR_WIDTH) + (k * SPACE) + (WIDTH - (BARS * BAR_WIDTH * SPACE)) / 2
                 height = bars[k]
                 drawBars(posX, height)
-                pygame.display.update()
-                pygame.time.wait(1)
+            pygame.display.update()
+            pygame.time.wait(1000)
             # Buble Sort
             if list[j] > list[j + 1]:
                 list[j], list[j + 1] = list[j + 1], list[j] 
+            screen.fill(WHITE)
 
 
 def drawBars(posX, height):
@@ -42,7 +44,7 @@ bubleSort(bars)
 # mainLoop
 run = True
 while run:
-    
+    clock.tick(60)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
