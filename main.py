@@ -9,6 +9,9 @@ bars = []
 # Changing color while selected
 global color
 
+# Font
+comicsansFont = pygame.font.SysFont('comicsans', 45)
+
 # SCREEN
 screen = pygame.display.set_mode(SCREEN_SIZE)
 pygame.display.set_caption("Bubble Sort Visualization")
@@ -40,6 +43,10 @@ def bubleSort(list):
     color = SORTED_BAR_COLOR
     drawAllBars(bars, color)
     message = "Sorted thanks for waiting"
+    sortedLabel = comicsansFont.render(message, 1, BALCK)
+    screen.blit(sortedLabel, (sortedLabel.get_width() - 200, HEIGHT - sortedLabel.get_height() -10 ))
+    pygame.display.update()
+
 
 def drawAllBars(list, color):
     for bar in range(BARS):
