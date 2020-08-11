@@ -14,7 +14,7 @@ def drawBars(posX, height):
 def setBarsHeight():
     for i in range(BARS):
         height = random.randint(-100, -10)
-        posX = (i * BAR_WIDTH) * (i * SPACE)
+        posX = (i * BAR_WIDTH) + (i * SPACE)
         drawBars(posX, height)
 
 setBarsHeight()
